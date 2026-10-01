@@ -1,0 +1,26 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install PSScriptAnalyzer
+        shell: pwsh
+        run: Install-Module PSScriptAnalyzer -Scope CurrentUser -Force
+      - name: Lint PowerShell profile
+        shell: pwsh
+        # CLI-style names, colored interactive output, and profile globals are intentional here.
+        run: Invoke-ScriptAnalyzer -Path powershell/profile.ps1 -Severity Warning,Error -ExcludeRule PSUseApprovedVerbs,PSUseShouldProcessForStateChangingFunctions,PSAvoidUsingWriteHost,PSAvoidGlobalVars -EnableExit
+      - name: Check Markdown links
+        run: npx --yes markdown-link-check --config .markdown-link-check.json README.md GUIDE.md

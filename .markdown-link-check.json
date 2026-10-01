@@ -1,0 +1,7 @@
+{
+  "ignorePatterns": [
+    {
+      "pattern": "^https://github\\.com/reeve25/ai-dev-setup/actions/workflows/ci\\.yml/badge\\.svg$"
+    }
+  ]
+}

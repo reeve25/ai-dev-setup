@@ -1,6 +1,6 @@
 # Reeve — global instructions
 
-CS student (UC Davis '27), incoming cybersecurity (vuln management); aiming at SWE and SRE/infra too.
+CS student (UC Davis '27), focused on AI engineering; aiming at SWE and SRE/infra too.
 GitHub: reeve25. I want to understand the tools, not just use them. Explain non-obvious choices in one line.
 
 ## Machine
